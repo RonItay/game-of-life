@@ -1,0 +1,72 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(50, 15px);
+  grid-template-rows: repeat(50, 15px);
+}
+
+.square {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.white {
+  background-color: #fff;
+  border: 1px solid #000; /* Border color opposite to the square color */
+}
+
+.black {
+  background-color: #000;
+  border: 1px solid #fff; /* Border color opposite to the square color */
+}
+
+.button {
+  margin-top: 10px;
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #bac0be;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #555755}
+
+.button:active {
+  background-color: #bac0be;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button-container {
+  display: flex;
+}
+
+#selectObject {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  color: #333; /* Set the text color */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

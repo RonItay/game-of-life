@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="/main.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Game Of Life</title>
+</head>
+<body>
+  <div class="board" id="board"></div>
+  <script type="module">
+    const { emit } = window.__TAURI__.event;
+
+    import { GRID_SIZE, COLORS } from "./consts.js";
+    import { onClick } from "./main.js";
+
+    document.addEventListener('DOMContentLoaded', function () { 
+      console.log("pingpong");
+      var board = document.getElementById('board');
+      for (var row = 0; row < GRID_SIZE; row++) {
+        for (var col = 0; col < GRID_SIZE; col++) {
+          var color = COLORS[0];
+          var square = document.createElement('div');
+          square.id =  row + '-' + col;
+          square.className = 'square ' + color;
+          square.addEventListener('click', onClick);
+          board.appendChild(square);
+        }
+      }
+    });
+    
+  </script>
+  <div class="button-container" id="button-container">
+    <button class=button id="stepButton">Step</button>
+    <button class=button id="clearButton">Clear</button>
+    <button class=button id="runButton">Run</button>
+  </div>
+  <select id="selectObject">
+    <option value="glider">Glider</option>
+    <option value="gun">Gun</option>
+  </select>
+</body>
+</html>
